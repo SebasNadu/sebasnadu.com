@@ -6,7 +6,18 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "format": "prettier --write .",
+    "prepare-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{css,scss}": "prettier --write",
+    "*.json": "prettier --write"
   },
   "dependencies": {
     "react": "^19.0.0",
@@ -31,6 +42,7 @@
     "eslint-plugin-sonarjs": "3.0.2",
     "eslint-plugin-tailwindcss": "3.18.0",
     "eslint-plugin-unicorn": "58.0.0",
+    "lint-staged": "15.5.1",
     "prettier": "3.5.3",
     "prettier-plugin-tailwindcss": "0.6.11",
     "tailwindcss": "^4",

@@ -1,15 +1,118 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1600,20,1.333,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l|3xs-2xs|3xs-xs|3xs-s|2xs-xs|2xs-s|2xs-m|xs-s|xs-m|xs-l|s-m|s-l|s-xl|m-l|m-xl|m-2xl|l-xl|l-2xl|l-3xl|xl-2xl|xl-3xl|2xl-3xl&g=s,l,xl,12 */
+  /* Step -2: 11.1111px → 11.2556px */
+  --step--2: clamp(0.6944rem, 0.6922rem + 0.0113cqi, 0.7035rem);
+  /* Step -1: 13.3333px → 15.0038px */
+  --step--1: clamp(0.8333rem, 0.8072rem + 0.1305cqi, 0.9377rem);
+  /* Step 0: 16px → 20px */
+  --step-0: clamp(1rem, 0.9375rem + 0.3125cqi, 1.25rem);
+  /* Step 1: 19.2px → 26.66px */
+  --step-1: clamp(1.2rem, 1.0834rem + 0.5828cqi, 1.6663rem);
+  /* Step 2: 23.04px → 35.5378px */
+  --step-2: clamp(1.44rem, 1.2447rem + 0.9764cqi, 2.2211rem);
+  /* Step 3: 27.648px → 47.3719px */
+  --step-3: clamp(1.728rem, 1.4198rem + 1.5409cqi, 2.9607rem);
+  /* Step 4: 33.1776px → 63.1467px */
+  --step-4: clamp(2.0736rem, 1.6053rem + 2.3413cqi, 3.9467rem);
+  /* Step 5: 39.8131px → 84.1745px */
+  --step-5: clamp(2.4883rem, 1.7952rem + 3.4657cqi, 5.2609rem);
+
+  /* @link https://utopia.fyi/space/calculator?c=320,16,1.2,1600,20,1.333,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l|3xs-2xs|3xs-xs|3xs-s|2xs-xs|2xs-s|2xs-m|xs-s|xs-m|xs-l|s-m|s-l|s-xl|m-l|m-xl|m-2xl|l-xl|l-2xl|l-3xl|xl-2xl|xl-3xl|2xl-3xl&g=s,l,xl,12 */
+  /* Space 3xs: 4px → 5px */
+  --space-3xs: clamp(0.25rem, 0.2344rem + 0.0781cqi, 0.3125rem);
+  /* Space 2xs: 8px → 10px */
+  --space-2xs: clamp(0.5rem, 0.4688rem + 0.1563cqi, 0.625rem);
+  /* Space xs: 12px → 15px */
+  --space-xs: clamp(0.75rem, 0.7031rem + 0.2344cqi, 0.9375rem);
+  /* Space s: 16px → 20px */
+  --space-s: clamp(1rem, 0.9375rem + 0.3125cqi, 1.25rem);
+  /* Space m: 24px → 30px */
+  --space-m: clamp(1.5rem, 1.4063rem + 0.4688cqi, 1.875rem);
+  /* Space l: 32px → 40px */
+  --space-l: clamp(2rem, 1.875rem + 0.625cqi, 2.5rem);
+  /* Space xl: 48px → 60px */
+  --space-xl: clamp(3rem, 2.8125rem + 0.9375cqi, 3.75rem);
+  /* Space 2xl: 64px → 80px */
+  --space-2xl: clamp(4rem, 3.75rem + 1.25cqi, 5rem);
+  /* Space 3xl: 96px → 120px */
+  --space-3xl: clamp(6rem, 5.625rem + 1.875cqi, 7.5rem);
+
+  /* One-up pairs */
+  /* Space 3xs-2xs: 4px → 10px */
+  --space-3xs-2xs: clamp(0.25rem, 0.1563rem + 0.4688cqi, 0.625rem);
+  /* Space 2xs-xs: 8px → 15px */
+  --space-2xs-xs: clamp(0.5rem, 0.3906rem + 0.5469cqi, 0.9375rem);
+  /* Space xs-s: 12px → 20px */
+  --space-xs-s: clamp(0.75rem, 0.625rem + 0.625cqi, 1.25rem);
+  /* Space s-m: 16px → 30px */
+  --space-s-m: clamp(1rem, 0.7813rem + 1.0938cqi, 1.875rem);
+  /* Space m-l: 24px → 40px */
+  --space-m-l: clamp(1.5rem, 1.25rem + 1.25cqi, 2.5rem);
+  /* Space l-xl: 32px → 60px */
+  --space-l-xl: clamp(2rem, 1.5625rem + 2.1875cqi, 3.75rem);
+  /* Space xl-2xl: 48px → 80px */
+  --space-xl-2xl: clamp(3rem, 2.5rem + 2.5cqi, 5rem);
+  /* Space 2xl-3xl: 64px → 120px */
+  --space-2xl-3xl: clamp(4rem, 3.125rem + 4.375cqi, 7.5rem);
+
+  /* Custom pairs */
+  /* Space s-l: 16px → 40px */
+  --space-s-l: clamp(1rem, 0.625rem + 1.875cqi, 2.5rem);
+  /* Space 3xs-2xs: 4px → 10px */
+  --space-3xs-2xs: clamp(0.25rem, 0.1563rem + 0.4688cqi, 0.625rem);
+  /* Space 3xs-xs: 4px → 15px */
+  --space-3xs-xs: clamp(0.25rem, 0.0781rem + 0.8594cqi, 0.9375rem);
+  /* Space 3xs-s: 4px → 20px */
+  --space-3xs-s: clamp(0.25rem, 0rem + 1.25cqi, 1.25rem);
+  /* Space 2xs-xs: 8px → 15px */
+  --space-2xs-xs: clamp(0.5rem, 0.3906rem + 0.5469cqi, 0.9375rem);
+  /* Space 2xs-s: 8px → 20px */
+  --space-2xs-s: clamp(0.5rem, 0.3125rem + 0.9375cqi, 1.25rem);
+  /* Space 2xs-m: 8px → 30px */
+  --space-2xs-m: clamp(0.5rem, 0.1563rem + 1.7188cqi, 1.875rem);
+  /* Space xs-s: 12px → 20px */
+  --space-xs-s: clamp(0.75rem, 0.625rem + 0.625cqi, 1.25rem);
+  /* Space xs-m: 12px → 30px */
+  --space-xs-m: clamp(0.75rem, 0.4688rem + 1.4063cqi, 1.875rem);
+  /* Space xs-l: 12px → 40px */
+  --space-xs-l: clamp(0.75rem, 0.3125rem + 2.1875cqi, 2.5rem);
+  /* Space s-m: 16px → 30px */
+  --space-s-m: clamp(1rem, 0.7813rem + 1.0938cqi, 1.875rem);
+  /* Space s-l: 16px → 40px */
+  --space-s-l: clamp(1rem, 0.625rem + 1.875cqi, 2.5rem);
+  /* Space s-xl: 16px → 60px */
+  --space-s-xl: clamp(1rem, 0.3125rem + 3.4375cqi, 3.75rem);
+  /* Space m-l: 24px → 40px */
+  --space-m-l: clamp(1.5rem, 1.25rem + 1.25cqi, 2.5rem);
+  /* Space m-xl: 24px → 60px */
+  --space-m-xl: clamp(1.5rem, 0.9375rem + 2.8125cqi, 3.75rem);
+  /* Space m-2xl: 24px → 80px */
+  --space-m-2xl: clamp(1.5rem, 0.625rem + 4.375cqi, 5rem);
+  /* Space l-xl: 32px → 60px */
+  --space-l-xl: clamp(2rem, 1.5625rem + 2.1875cqi, 3.75rem);
+  /* Space l-2xl: 32px → 80px */
+  --space-l-2xl: clamp(2rem, 1.25rem + 3.75cqi, 5rem);
+  /* Space l-3xl: 32px → 120px */
+  --space-l-3xl: clamp(2rem, 0.625rem + 6.875cqi, 7.5rem);
+  /* Space xl-2xl: 48px → 80px */
+  --space-xl-2xl: clamp(3rem, 2.5rem + 2.5cqi, 5rem);
+  /* Space xl-3xl: 48px → 120px */
+  --space-xl-3xl: clamp(3rem, 1.875rem + 5.625cqi, 7.5rem);
+  /* Space 2xl-3xl: 64px → 120px */
+  --space-2xl-3xl: clamp(4rem, 3.125rem + 4.375cqi, 7.5rem);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-general-sans);
+  --font-serif: var(--font-source-serif);
+  --font-mono: var(--font-jetbrains-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,4 +126,309 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* TODO: modify accent in the html */
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  h1,
+  .h1 {
+    @apply font-sans font-bold;
+    font-size: var(--step-5);
+  }
+
+  h2,
+  .h2 {
+    @apply font-sans font-medium;
+    font-size: var(--step-4);
+  }
+
+  h3,
+  .h3 {
+    @apply font-sans font-medium;
+    font-size: var(--step-3);
+  }
+
+  h4,
+  .h4 {
+    @apply font-sans font-medium;
+    font-size: var(--step-2);
+  }
+
+  h5,
+  .h5 {
+    @apply font-sans font-medium;
+    font-size: var(--step-1);
+  }
+
+  body,
+  .p {
+    @apply font-serif font-light;
+    font-size: var(--step-0);
+  }
+
+  small,
+  .small {
+    @apply font-serif font-light;
+    font-size: var(--step--1);
+  }
+
+  .xsmall {
+    @apply font-serif font-light;
+    font-size: var(--step--2);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
+
+@layer layout {
+  .page-layout > *,
+  .full-width > * {
+    grid-column: content;
+  }
+  .page-layout,
+  .full-width {
+    --minimum-content-padding: 2rem;
+
+    /** TRACK WIDTHS **/
+    --full-max-width: 1fr;
+    --popout-max-width: 1600px;
+    --content-max-width: 1280px;
+    --inset-content-max-width: 960px;
+    --narrow-max-width: 640px;
+
+    /** TRACK SIZES **/
+    --full: minmax(var(--minimum-content-padding), 1fr);
+    --popout: minmax(0, calc((var(--popout-max-width) - var(--content-max-width)) * 0.5));
+    --content: minmax(0, calc((var(--content-max-width) - var(--inset-content-max-width)) * 0.5));
+    --inset-content: minmax(
+      0,
+      calc((var(--inset-content-max-width) - var(--narrow-max-width)) * 0.5)
+    );
+    --narrow: min(var(--narrow-max-width), 100% - var(--minimum-content-padding) * 2);
+
+    display: grid;
+    grid-template-columns:
+      [full-start]
+      var(--full)
+      [popout-start]
+      var(--popout)
+      [content-start]
+      var(--content)
+      [inset-content-start]
+      var(--inset-content)
+      [narrow-start]
+      var(--narrow)
+      [narrow-end]
+      var(--inset-content)
+      [inset-content-end]
+      var(--content)
+      [content-end]
+      var(--popout)
+      [popout-end]
+      var(--full)
+      [full-end];
+  }
+
+  /** CLASSES **/
+  .full {
+    grid-column: full;
+  }
+  .full-start {
+    grid-column-start: full-start;
+  }
+  .full-end {
+    grid-column-end: full-end;
+  }
+
+  .popout {
+    grid-column: popout;
+  }
+  .popout-start {
+    grid-column-start: popout-start;
+  }
+  .popout-end {
+    grid-column-end: popout-end;
+  }
+
+  .content {
+    grid-column: content;
+  }
+  .content-start {
+    grid-column-start: content-start;
+  }
+  .content-end {
+    grid-column-end: content-end;
+  }
+
+  .inset-content {
+    grid-column: inset-content;
+  }
+  .inset-content-start {
+    grid-column-start: inset-content-start;
+  }
+  .inset-content-end {
+    grid-column-end: inset-content-end;
+  }
+
+  .narrow {
+    grid-column: narrow;
+  }
+  .narrow-start {
+    grid-column-start: narrow-start;
+  }
+  .narrow-end {
+    grid-column-end: narrow-end;
+  }
+
+  .full-width {
+    grid-column: full;
+  }
+  .full-content,
+  .full-content-nopad {
+    grid-column: full;
+  }
+  .full-content {
+    padding-inline: var(--minimum-content-padding);
+  }
+}
+
+@layer reset {
+  /* Piccalilli CSS Reset https://piccalil.li/blog/a-more-modern-css-reset/ */
+  /* Box sizing rules */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /* Prevent font size inflation */
+  html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+
+    interpolate-size: allow-keywords;
+  }
+
+  /* Remove default margin in favour of better control in authored CSS */
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  figure,
+  blockquote,
+  dl,
+  dd {
+    margin-block-end: 0;
+  }
+
+  /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+  ul[role='list'],
+  ol[role='list'] {
+    list-style: none;
+  }
+
+  /* Set core body defaults */
+  body {
+    min-height: 100vh;
+    line-height: 1.5;
+  }
+
+  /* Set shorter line heights on headings and interactive elements */
+  h1,
+  h2,
+  h3,
+  h4,
+  button,
+  input,
+  label {
+    line-height: 1.1;
+  }
+
+  /* Balance text wrapping on headings */
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+
+  /* A elements that don't have a class get default styles */
+  a:not([class]) {
+    text-decoration-skip-ink: auto;
+    color: currentColor;
+  }
+
+  /* Make images easier to work with */
+  img,
+  picture {
+    max-width: 100%;
+    display: block;
+  }
+
+  /* Inherit fonts for inputs and buttons */
+  input,
+  button,
+  textarea,
+  select {
+    font-family: inherit;
+    font-size: inherit;
+  }
+
+  /* Make sure textareas without a rows attribute are not tiny */
+  textarea:not([rows]) {
+    min-height: 10em;
+  }
+
+  /* Anything that has been anchored to should have extra scroll margin */
+  :target {
+    scroll-margin-block: 32px;
+    scroll-margin-block: 5rlh;
+  }
+
+  p,
+  li,
+  figcaption {
+    text-wrap: pretty;
+    max-width: 65ch;
+  }
+
+  header,
+  footer,
+  main,
+  section,
+  article {
+    container-type: inline-size;
+  }
+
+  td,
+  math,
+  time[datetime*=':'] {
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
 }

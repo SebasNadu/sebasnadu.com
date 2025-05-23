@@ -1,14 +1,12 @@
 'use client';
 
-import { ReactNode } from 'react';
+import React from 'react';
 
-import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import { ScrambleTextPlugin } from 'gsap/ScrambleTextPlugin';
-import { TextPlugin } from 'gsap/TextPlugin';
 
-gsap.registerPlugin(useGSAP, ScrambleTextPlugin);
+gsap.registerPlugin(ScrambleTextPlugin);
 
-export default function GSAPProvider({ children }: { children: ReactNode }) {
+export default function GSAPProvider({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

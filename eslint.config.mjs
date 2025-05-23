@@ -47,7 +47,7 @@ const eslintConfig = [
       'check-file/filename-naming-convention': [
         'error',
         {
-          '**/*.{jsx,tsx}': 'CAMEL_CASE',
+          '**/*.{jsx,tsx}': 'PASCAL_CASE',
           '**/*.{js,ts}': 'CAMEL_CASE',
           '**/*.d.ts': 'CAMEL_CASE',
           '**/*.test.{js,jsx,ts,tsx}': 'CAMEL_CASE',

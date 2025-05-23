@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
     dynamicIO: true,
     // Option to reactCompiler: compilationMode: 'annotation',
     reactCompiler: true,
-    ppr: 'incremental',
+    // ppr: 'incremental',
     staleTimes: {
       dynamic: 30, // Cache dynamically generated pages for 30 seconds
       static: 180, // Cache statically generated pages for 3 minutes
@@ -22,9 +22,10 @@ const nextConfig: NextConfig = {
     //   'date-fns',
     //   '@heroicons/react',
     //   'lucide-react',
-    //   'lodash',
+    //   'lodash'next,
     // ],
   },
+
   // NOTE: External images if it is needed
   // images: {
   //   remotePatterns: [
@@ -85,6 +86,8 @@ const nextConfig: NextConfig = {
 
   // TODO: Turn off later
   reactStrictMode: true,
+
+  allowedDevOrigins: ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://192.168.2.73:3000'],
 };
 
 export default nextConfig;

@@ -1,6 +1,11 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 
+import Footer from '@/components/Footer/Footer';
+import Navbar from '@/components/Navbar/Navbar';
+import GSAPProvider from '@/components/providers/GSAPProvider';
+import styles from '@/layout.module.css';
+
 import './globals.css';
 
 const generalSans = localFont({
@@ -110,9 +115,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${generalSans.variable} ${sourceSerif.variable} ${jetBrainsMono.variable} antialiased`}
+        className={`${generalSans.variable} ${sourceSerif.variable} ${jetBrainsMono.variable} antialiased ${styles.layout} page-layout`}
       >
-        {children}
+        <GSAPProvider>
+          <Navbar />
+          <main className="content">{children}</main>
+          <Footer />
+        </GSAPProvider>
       </body>
     </html>
   );

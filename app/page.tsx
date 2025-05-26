@@ -8,7 +8,7 @@ import { gsap } from 'gsap';
 import styles from './page.module.css';
 
 export default function Home() {
-  const titleContainer = useRef(null);
+  const homeContainer = useRef(null);
   useGSAP(
     () => {
       const tl = gsap.timeline({ defaults: { ease: 'sine.inOut' } });
@@ -31,14 +31,15 @@ export default function Home() {
         '<'
       );
 
-      // Phase 2: Initial Scramble with binary characters
+      // Phase 2: Initial Scramble with binary characters and moving to the final position
       tl.to('.firstName', {
         duration: 2.0,
-        x: '-10dvw',
+        ease: 'power1.inOut',
+        xPercent: '-10',
         scrambleText: {
           text: 'Sebastian',
           chars: '1010',
-          revealDelay: 0.5,
+          revealDelay: 0.0,
           speed: 1.0,
           delimiter: ' ',
         },
@@ -48,11 +49,12 @@ export default function Home() {
         '.lastName',
         {
           duration: 2.0,
-          x: '10dvw',
+          ease: 'power1.inOut',
+          xPercent: '10',
           scrambleText: {
             text: 'Navarro',
             chars: '1010',
-            revealDelay: 0.5,
+            revealDelay: 0.0,
             speed: 2.0,
             delimiter: ' ',
           },
@@ -60,16 +62,32 @@ export default function Home() {
         '<'
       );
 
-      // Phrase 3: Final Scramble with special characters
-      tl.to('.firstName', {
-        duration: 0.5,
-        scrambleText: {
-          text: 'Sebastian',
-          chars: '█▓▒░',
-          revealDelay: 0.2,
-          speed: 4,
+      tl.to(
+        `.${styles.divider}`,
+        {
+          duration: 1.0,
+          ease: 'sine.in',
+          width: '100dvw',
+          left: 0,
         },
-      });
+        '<+0.5'
+      );
+
+      // Phrase 3: Final Scramble with special characters
+      tl.to(
+        '.firstName',
+        {
+          duration: 0.5,
+          scrambleText: {
+            text: 'Sebastian',
+            chars: '█▓▒░',
+            revealDelay: 0.2,
+            speed: 4,
+            delimiter: ' ',
+          },
+        },
+        '>'
+      );
 
       tl.to(
         '.lastName',
@@ -80,6 +98,7 @@ export default function Home() {
             chars: '█▓▒░',
             revealDelay: 0.2,
             speed: 4,
+            delimiter: ' ',
           },
         },
         '<'
@@ -88,24 +107,70 @@ export default function Home() {
       tl.to(
         `.${styles.divider}`,
         {
-          ease: 'power3.out',
           duration: 0.5,
-          height: '100dvh',
-          top: 0,
+          opacity: -0.5,
+          ease: 'power4.in',
+          onComplete: () => {
+            gsap.set(`.${styles.divider}`, {
+              display: 'none',
+            });
+          },
         },
-        '<-0.3'
+        '<-0.2'
+      );
+
+      tl.to(
+        `.${styles.leftPanel}`,
+        {
+          duration: 0.5,
+          x: '100%',
+          ease: 'pkwer4.in',
+          onComplete: () => {
+            gsap.set(`.${styles.leftPanel}`, {
+              display: 'none',
+            });
+          },
+        },
+        '>-0.2'
+      );
+
+      tl.to(
+        `.${styles.rightPanel}`,
+        {
+          duration: 0.5,
+          x: '-100%',
+          ease: 'power4.in',
+          onComplete: () => {
+            gsap.set(`.${styles.rightPanel}`, {
+              display: 'none',
+            });
+          },
+        },
+        '<-0.2'
+      );
+
+      tl.to(
+        `.${styles.title}`,
+        {
+          duration: 0.5,
+          color: 'var(--foreground)',
+        },
+        '<+0.2'
       );
     },
-    { scope: titleContainer }
+    { scope: homeContainer }
   );
 
   return (
-    <div className={styles.home}>
-      <div ref={titleContainer} className={`${styles.title}`}>
+    <div ref={homeContainer} className={styles.home}>
+      <div className={`${styles.title}`}>
         <h1 className="h0 firstName">Sebas</h1>
         <div className={styles.divider} />
         <h1 className="h0 lastName">Nadu</h1>
       </div>
+      <p className="">Developer</p>
+      <div className={styles.leftPanel} />
+      <div className={styles.rightPanel} />
     </div>
   );
 }

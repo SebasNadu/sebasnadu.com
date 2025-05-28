@@ -73,8 +73,6 @@ const eslintConfig = [
       'no-unused-vars': 'off',
       'prefer-const': 'error',
       'no-var': 'error',
-
-      'no-unsafe-function-type': 'off',
     },
   },
   {

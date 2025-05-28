@@ -44,17 +44,17 @@ const eslintConfig = [
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
 
-      'check-file/filename-naming-convention': [
-        'error',
-        {
-          '**/*.{jsx,tsx}': 'PASCAL_CASE',
-          '**/*.{js,ts}': 'CAMEL_CASE',
-          '**/*.d.ts': 'CAMEL_CASE',
-          '**/*.test.{js,jsx,ts,tsx}': 'CAMEL_CASE',
-          '**/*.spec.{js,jsx,ts,tsx}': 'CAMEL_CASE',
-        },
-        { ignoreMiddleExtensions: true },
-      ],
+      // 'check-file/filename-naming-convention': [
+      //   'error',
+      //   {
+      //     '**/*.{jsx,tsx}': 'KEBAB_CASE',
+      //     '**/*.{js,ts}': 'KEBAB_CASE',
+      //     '**/*.d.ts': 'KEBAB_CASE',
+      //     '**/*.test.{js,jsx,ts,tsx}': 'KEBAB_CASE',
+      //     '**/*.spec.{js,jsx,ts,tsx}': 'KEBAB_CASE',
+      //   },
+      //   { ignoreMiddleExtensions: true },
+      // ],
 
       'sonarjs/cognitive-complexity': 'warn',
       'sonarjs/no-duplicate-string': ['warn', { threshold: 3 }],

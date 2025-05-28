@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 
-import Footer from '@/components/Footer/Footer';
-import Navbar from '@/components/Navbar/Navbar';
-import GSAPProvider from '@/components/providers/GSAPProvider';
+import Footer from '@/components/footer/footer';
+import Navbar from '@/components/navbar/navbar';
+import GSAPProvider from '@/components/providers/gsap-provider';
+import ThemeProvider from '@/components/providers/theme-provider';
 import styles from '@/layout.module.css';
 
 import './globals.css';
@@ -11,12 +12,12 @@ import './globals.css';
 const generalSans = localFont({
   src: [
     {
-      path: '../public/fonts/GeneralSansVariable-Bold.woff2',
+      path: '../public/fonts/GeneralSans-Variable.woff2',
       weight: '200 700',
       style: 'normal',
     },
     {
-      path: '../public/fonts/GeneralSansVariable-BoldItalic.woff2',
+      path: '../public/fonts/GeneralSans-VariableItalic.woff2',
       weight: '200 700',
       style: 'italic',
     },
@@ -28,12 +29,12 @@ const generalSans = localFont({
 const sourceSerif = localFont({
   src: [
     {
-      path: '../public/fonts/subset-SourceSerif4Roman-Regular.woff2',
+      path: '../public/fonts/SourceSerif4-VariableFont_opsz,wght.woff2',
       weight: '200 900',
       style: 'normal',
     },
     {
-      path: '../public/fonts/subset-SourceSerif4Italic-Italic.woff2',
+      path: '../public/fonts/SourceSerif4-Italic-VariableFont_opsz,wght.woff2',
       weight: '200 900',
       style: 'italic',
     },
@@ -45,12 +46,12 @@ const sourceSerif = localFont({
 const jetBrainsMono = localFont({
   src: [
     {
-      path: '../public/fonts/subset-JetBrainsMono-Regular.woff2',
+      path: '../public/fonts/JetBrainsMono[wght].woff2',
       weight: '100 800',
       style: 'normal',
     },
     {
-      path: '../public/fonts/subset-JetBrainsMono-Italic.woff2',
+      path: '../public/fonts/JetBrainsMono-Italic[wght].woff2',
       weight: '100 800',
       style: 'italic',
     },
@@ -113,15 +114,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${generalSans.variable} ${sourceSerif.variable} ${jetBrainsMono.variable} antialiased ${styles.layout} page-layout`}
+        suppressHydrationWarning
+        className={[
+          generalSans.variable,
+          sourceSerif.variable,
+          jetBrainsMono.variable,
+          'antialiased',
+          styles.layout,
+          'page-layout',
+        ].join(' ')}
       >
-        <GSAPProvider>
-          <Navbar />
-          <main className="content">{children}</main>
-          <Footer />
-        </GSAPProvider>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+          <GSAPProvider>
+            <Navbar />
+            <main className="content">{children}</main>
+            <Footer />
+          </GSAPProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

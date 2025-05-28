@@ -14,15 +14,14 @@ export default function Home() {
       const tl = gsap.timeline({ defaults: { ease: 'sine.inOut' } });
 
       // Phase 1: Entrance from the name
-      tl.from('.lastName, .firstName', {
+      tl.from(`.${styles.lastName}, .${styles.firstName}`, {
         ease: 'power1.inOut',
         y: 100,
-        opacity: 0,
         duration: 1.5,
       });
 
       tl.to(
-        '.lastName, .firstName',
+        `.${styles.lastName}, .${styles.firstName}`,
         {
           ease: 'power1.inOut',
           opacity: 1,
@@ -32,10 +31,10 @@ export default function Home() {
       );
 
       // Phase 2: Initial Scramble with binary characters and moving to the final position
-      tl.to('.firstName', {
+      tl.to(`.${styles.firstName}`, {
         duration: 2.0,
         ease: 'power1.inOut',
-        xPercent: '-10',
+        x: '-1dvw',
         scrambleText: {
           text: 'Sebastian',
           chars: '1010',
@@ -46,13 +45,13 @@ export default function Home() {
       });
 
       tl.to(
-        '.lastName',
+        `.${styles.lastName}`,
         {
           duration: 2.0,
           ease: 'power1.inOut',
-          xPercent: '10',
+          x: '1dvw',
           scrambleText: {
-            text: 'Navarro',
+            text: 'Navarro  ',
             chars: '1010',
             revealDelay: 0.0,
             speed: 2.0,
@@ -65,17 +64,17 @@ export default function Home() {
       tl.to(
         `.${styles.divider}`,
         {
-          duration: 1.0,
-          ease: 'sine.in',
+          duration: 0.5,
+          ease: 'power4.in',
           width: '100dvw',
           left: 0,
         },
-        '<+0.5'
+        '<+1.0'
       );
 
       // Phrase 3: Final Scramble with special characters
       tl.to(
-        '.firstName',
+        `.${styles.firstName}`,
         {
           duration: 0.5,
           scrambleText: {
@@ -90,11 +89,11 @@ export default function Home() {
       );
 
       tl.to(
-        '.lastName',
+        `.${styles.lastName}`,
         {
           duration: 0.5,
           scrambleText: {
-            text: 'Navarro',
+            text: 'Navarro{}',
             chars: '█▓▒░',
             revealDelay: 0.2,
             speed: 4,
@@ -116,7 +115,7 @@ export default function Home() {
             });
           },
         },
-        '<-0.2'
+        '<'
       );
 
       tl.to(
@@ -124,14 +123,14 @@ export default function Home() {
         {
           duration: 0.5,
           x: '100%',
-          ease: 'pkwer4.in',
+          ease: 'power4.in',
           onComplete: () => {
             gsap.set(`.${styles.leftPanel}`, {
               display: 'none',
             });
           },
         },
-        '>-0.2'
+        '<'
       );
 
       tl.to(
@@ -163,12 +162,18 @@ export default function Home() {
 
   return (
     <div ref={homeContainer} className={styles.home}>
+      <h6 className={styles.subtitle}>Creative Colombian Developer based in Germany</h6>
       <div className={`${styles.title}`}>
-        <h1 className="h0 firstName">Sebas</h1>
+        <h1 className={`h0 ${styles.firstName}`}>Sebas</h1>
         <div className={styles.divider} />
-        <h1 className="h0 lastName">Nadu</h1>
+        <h1 className={`h0 ${styles.lastName}`}>Nadu</h1>
       </div>
-      <p className="">Developer</p>
+      <div className="narrow">
+        <p className={`${styles.description}`}>
+          Hi! Thanks for stopping by. I’m a full-stack engineer with a knack for turning ideas into
+          fast, reliable, and human-centered digital experiences.
+        </p>
+      </div>
       <div className={styles.leftPanel} />
       <div className={styles.rightPanel} />
     </div>

@@ -1,3 +1,19 @@
 .navbar {
+  position: absolute;
   width: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+}
+
+.logo {
+  font-family: var(--font-general-sans);
+  font-weight: 900;
+}
+
+.menu {
+  font-family: var(--font-general-sans);
+  display: flex;
+  flex-direction: column;
 }

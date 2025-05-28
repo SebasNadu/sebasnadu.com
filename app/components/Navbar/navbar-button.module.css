@@ -1,0 +1,10 @@
+.link {
+  width: 10ch;
+}
+
+.symbol {
+  display: inline-block;
+  width: 1ch;
+  text-align: center;
+  margin-right: 0.5ch;
+}

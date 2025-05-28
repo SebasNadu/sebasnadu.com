@@ -1,116 +1,135 @@
 @import 'tailwindcss';
+@import 'tw-animate-css';
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-
-  /* @link https://utopia.fyi/space/calculator?c=320,16,1.2,1600,20,1.333,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l|3xs-2xs|3xs-xs|3xs-s|2xs-xs|2xs-s|2xs-m|xs-s|xs-m|xs-l|s-m|s-l|s-xl|m-l|m-xl|m-2xl|l-xl|l-2xl|l-3xl|xl-2xl|xl-3xl|2xl-3xl&g=s,l,xl,12 */
-  /* Step -2: 11.1111px → 11.2556px */
-  --step--2: clamp(0.6944rem, 0.6922rem + 0.0113dvw, 0.7035rem);
-  /* Step -1: 13.3333px → 15.0038px */
-  --step--1: clamp(0.8333rem, 0.8072rem + 0.1305dvw, 0.9377rem);
-  /* Step 0: 16px → 20px */
-  --step-0: clamp(1rem, 0.9375rem + 0.3125dvw, 1.25rem);
-  /* Step 1: 19.2px → 26.66px */
-  --step-1: clamp(1.2rem, 1.0834rem + 0.5828dvw, 1.6663rem);
-  /* Step 2: 23.04px → 35.5378px */
-  --step-2: clamp(1.44rem, 1.2447rem + 0.9764dvw, 2.2211rem);
-  /* Step 3: 27.648px → 47.3719px */
-  --step-3: clamp(1.728rem, 1.4198rem + 1.5409dvw, 2.9607rem);
-  /* Step 4: 33.1776px → 63.1467px */
-  --step-4: clamp(2.0736rem, 1.6053rem + 2.3413dvw, 3.9467rem);
-  /* Step 5: 39.8131px → 84.1745px */
-  --step-5: clamp(2.4883rem, 1.7952rem + 3.4657dvw, 5.2609rem);
-  /* Step 6: 47.7757px → 112.2047px */
-  --step-6: clamp(2.986rem, 1.9793rem + 5.0335dvw, 7.0128rem);
-
-  /* @link https://utopia.fyi/space/calculator?c=320,16,1.2,1600,20,1.333,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6|8,s-l|3xs-2xs|3xs-xs|3xs-s|2xs-xs|2xs-s|2xs-m|xs-s|xs-m|xs-l|s-m|s-l|s-xl|m-l|m-xl|m-2xl|l-xl|l-2xl|l-3xl|xl-2xl|xl-3xl|2xl-3xl|l-3xl|l-4xl&g=s,l,xl,12 */
-  /* Space 3xs: 4px → 5px */
-  --space-3xs: clamp(0.25rem, 0.2344rem + 0.0781vw, 0.3125rem);
-  /* Space 2xs: 8px → 10px */
-  --space-2xs: clamp(0.5rem, 0.4688rem + 0.1563vw, 0.625rem);
-  /* Space xs: 12px → 15px */
-  --space-xs: clamp(0.75rem, 0.7031rem + 0.2344vw, 0.9375rem);
-  /* Space s: 16px → 20px */
-  --space-s: clamp(1rem, 0.9375rem + 0.3125vw, 1.25rem);
-  /* Space m: 24px → 30px */
-  --space-m: clamp(1.5rem, 1.4063rem + 0.4688vw, 1.875rem);
-  /* Space l: 32px → 40px */
-  --space-l: clamp(2rem, 1.875rem + 0.625vw, 2.5rem);
-  /* Space xl: 48px → 60px */
-  --space-xl: clamp(3rem, 2.8125rem + 0.9375vw, 3.75rem);
-  /* Space 2xl: 64px → 80px */
-  --space-2xl: clamp(4rem, 3.75rem + 1.25vw, 5rem);
-  /* Space 3xl: 96px → 120px */
-  --space-3xl: clamp(6rem, 5.625rem + 1.875vw, 7.5rem);
+  /* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1600,24,1.333,6,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l|3xs-2xs|3xs-xs|3xs-s|2xs-xs|2xs-s|2xs-m|xs-s|xs-m|xs-l|s-m|s-l|s-xl|m-l|m-xl|m-2xl|l-xl|l-2xl|l-3xl|xl-2xl|xl-3xl|2xl-3xl&g=s,l,xl,12 */
+  /* Space 3xs: 5px → 6px */
+  --space-3xs: clamp(0.3125rem, 0.2969rem + 0.0781vw, 0.375rem);
+  /* Space 2xs: 9px → 12px */
+  --space-2xs: clamp(0.5625rem, 0.5156rem + 0.2344vw, 0.75rem);
+  /* Space xs: 14px → 18px */
+  --space-xs: clamp(0.875rem, 0.8125rem + 0.3125vw, 1.125rem);
+  /* Space s: 18px → 24px */
+  --space-s: clamp(1.125rem, 1.0313rem + 0.4688vw, 1.5rem);
+  /* Space m: 27px → 36px */
+  --space-m: clamp(1.6875rem, 1.5469rem + 0.7031vw, 2.25rem);
+  /* Space l: 36px → 48px */
+  --space-l: clamp(2.25rem, 2.0625rem + 0.9375vw, 3rem);
+  /* Space xl: 54px → 72px */
+  --space-xl: clamp(3.375rem, 3.0938rem + 1.4063vw, 4.5rem);
+  /* Space 2xl: 72px → 96px */
+  --space-2xl: clamp(4.5rem, 4.125rem + 1.875vw, 6rem);
+  /* Space 3xl: 108px → 144px */
+  --space-3xl: clamp(6.75rem, 6.1875rem + 2.8125vw, 9rem);
+  /* Space 4xl: 126px → 168px */
+  --space-4xl: clamp(7.875rem, 7.2188rem + 3.2813vw, 10.5rem);
 
   /* One-up pairs */
-  /* Space 3xs-2xs: 4px → 10px */
-  --space-3xs-2xs: clamp(0.25rem, 0.1563rem + 0.4688vw, 0.625rem);
-  /* Space 2xs-xs: 8px → 15px */
-  --space-2xs-xs: clamp(0.5rem, 0.3906rem + 0.5469vw, 0.9375rem);
-  /* Space xs-s: 12px → 20px */
-  --space-xs-s: clamp(0.75rem, 0.625rem + 0.625vw, 1.25rem);
-  /* Space s-m: 16px → 30px */
-  --space-s-m: clamp(1rem, 0.7813rem + 1.0938vw, 1.875rem);
-  /* Space m-l: 24px → 40px */
-  --space-m-l: clamp(1.5rem, 1.25rem + 1.25vw, 2.5rem);
-  /* Space l-xl: 32px → 60px */
-  --space-l-xl: clamp(2rem, 1.5625rem + 2.1875vw, 3.75rem);
-  /* Space xl-2xl: 48px → 80px */
-  --space-xl-2xl: clamp(3rem, 2.5rem + 2.5vw, 5rem);
-  /* Space 2xl-3xl: 64px → 120px */
-  --space-2xl-3xl: clamp(4rem, 3.125rem + 4.375vw, 7.5rem);
+  /* Space 3xs-2xs: 5px → 12px */
+  --space-3xs-2xs: clamp(0.3125rem, 0.2031rem + 0.5469vw, 0.75rem);
+  /* Space 2xs-xs: 9px → 18px */
+  --space-2xs-xs: clamp(0.5625rem, 0.4219rem + 0.7031vw, 1.125rem);
+  /* Space xs-s: 14px → 24px */
+  --space-xs-s: clamp(0.875rem, 0.7188rem + 0.7813vw, 1.5rem);
+  /* Space s-m: 18px → 36px */
+  --space-s-m: clamp(1.125rem, 0.8438rem + 1.4063vw, 2.25rem);
+  /* Space m-l: 27px → 48px */
+  --space-m-l: clamp(1.6875rem, 1.3594rem + 1.6406vw, 3rem);
+  /* Space l-xl: 36px → 72px */
+  --space-l-xl: clamp(2.25rem, 1.6875rem + 2.8125vw, 4.5rem);
+  /* Space xl-2xl: 54px → 96px */
+  --space-xl-2xl: clamp(3.375rem, 2.7188rem + 3.2813vw, 6rem);
+  /* Space 2xl-3xl: 72px → 144px */
+  --space-2xl-3xl: clamp(4.5rem, 3.375rem + 5.625vw, 9rem);
+  /* Space 3xl-4xl: 108px → 168px */
+  --space-3xl-4xl: clamp(6.75rem, 5.8125rem + 4.6875vw, 10.5rem);
 
   /* Custom pairs */
-  /* Space s-l: 16px → 40px */
-  --space-s-l: clamp(1rem, 0.625rem + 1.875vw, 2.5rem);
-  /* Space 3xs-2xs: 4px → 10px */
-  --space-3xs-2xs: clamp(0.25rem, 0.1563rem + 0.4688vw, 0.625rem);
-  /* Space 3xs-xs: 4px → 15px */
-  --space-3xs-xs: clamp(0.25rem, 0.0781rem + 0.8594vw, 0.9375rem);
-  /* Space 3xs-s: 4px → 20px */
-  --space-3xs-s: clamp(0.25rem, 0rem + 1.25vw, 1.25rem);
-  /* Space 2xs-xs: 8px → 15px */
-  --space-2xs-xs: clamp(0.5rem, 0.3906rem + 0.5469vw, 0.9375rem);
-  /* Space 2xs-s: 8px → 20px */
-  --space-2xs-s: clamp(0.5rem, 0.3125rem + 0.9375vw, 1.25rem);
-  /* Space 2xs-m: 8px → 30px */
-  --space-2xs-m: clamp(0.5rem, 0.1563rem + 1.7188vw, 1.875rem);
-  /* Space xs-s: 12px → 20px */
-  --space-xs-s: clamp(0.75rem, 0.625rem + 0.625vw, 1.25rem);
-  /* Space xs-m: 12px → 30px */
-  --space-xs-m: clamp(0.75rem, 0.4688rem + 1.4063vw, 1.875rem);
-  /* Space xs-l: 12px → 40px */
-  --space-xs-l: clamp(0.75rem, 0.3125rem + 2.1875vw, 2.5rem);
-  /* Space s-m: 16px → 30px */
-  --space-s-m: clamp(1rem, 0.7813rem + 1.0938vw, 1.875rem);
-  /* Space s-l: 16px → 40px */
-  --space-s-l: clamp(1rem, 0.625rem + 1.875vw, 2.5rem);
-  /* Space s-xl: 16px → 60px */
-  --space-s-xl: clamp(1rem, 0.3125rem + 3.4375vw, 3.75rem);
-  /* Space m-l: 24px → 40px */
-  --space-m-l: clamp(1.5rem, 1.25rem + 1.25vw, 2.5rem);
-  /* Space m-xl: 24px → 60px */
-  --space-m-xl: clamp(1.5rem, 0.9375rem + 2.8125vw, 3.75rem);
-  /* Space m-2xl: 24px → 80px */
-  --space-m-2xl: clamp(1.5rem, 0.625rem + 4.375vw, 5rem);
-  /* Space l-xl: 32px → 60px */
-  --space-l-xl: clamp(2rem, 1.5625rem + 2.1875vw, 3.75rem);
-  /* Space l-2xl: 32px → 80px */
-  --space-l-2xl: clamp(2rem, 1.25rem + 3.75vw, 5rem);
-  /* Space l-3xl: 32px → 120px */
-  --space-l-3xl: clamp(2rem, 0.625rem + 6.875vw, 7.5rem);
-  /* Space xl-2xl: 48px → 80px */
-  --space-xl-2xl: clamp(3rem, 2.5rem + 2.5vw, 5rem);
-  /* Space xl-3xl: 48px → 120px */
-  --space-xl-3xl: clamp(3rem, 1.875rem + 5.625vw, 7.5rem);
-  /* Space 2xl-3xl: 64px → 120px */
-  --space-2xl-3xl: clamp(4rem, 3.125rem + 4.375vw, 7.5rem);
-  /* Space l-3xl: 32px → 120px */
-  --space-l-3xl: clamp(2rem, 0.625rem + 6.875vw, 7.5rem);
-  /* Space l-4xl: 32px → 160px */
-  --space-l-4xl: clamp(2rem, 0rem + 10vw, 10rem);
+  /* Space s-l: 18px → 48px */
+  --space-s-l: clamp(1.125rem, 0.6563rem + 2.3438vw, 3rem);
+  /* Space 3xs-2xs: 5px → 12px */
+  --space-3xs-2xs: clamp(0.3125rem, 0.2031rem + 0.5469vw, 0.75rem);
+  /* Space 3xs-xs: 5px → 18px */
+  --space-3xs-xs: clamp(0.3125rem, 0.1094rem + 1.0156vw, 1.125rem);
+  /* Space 3xs-s: 5px → 24px */
+  --space-3xs-s: clamp(0.3125rem, 0.0156rem + 1.4844vw, 1.5rem);
+  /* Space 2xs-xs: 9px → 18px */
+  --space-2xs-xs: clamp(0.5625rem, 0.4219rem + 0.7031vw, 1.125rem);
+  /* Space 2xs-s: 9px → 24px */
+  --space-2xs-s: clamp(0.5625rem, 0.3281rem + 1.1719vw, 1.5rem);
+  /* Space 2xs-m: 9px → 36px */
+  --space-2xs-m: clamp(0.5625rem, 0.1406rem + 2.1094vw, 2.25rem);
+  /* Space xs-s: 14px → 24px */
+  --space-xs-s: clamp(0.875rem, 0.7188rem + 0.7813vw, 1.5rem);
+  /* Space xs-m: 14px → 36px */
+  --space-xs-m: clamp(0.875rem, 0.5313rem + 1.7188vw, 2.25rem);
+  /* Space xs-l: 14px → 48px */
+  --space-xs-l: clamp(0.875rem, 0.3438rem + 2.6563vw, 3rem);
+  /* Space s-m: 18px → 36px */
+  --space-s-m: clamp(1.125rem, 0.8438rem + 1.4063vw, 2.25rem);
+  /* Space s-l: 18px → 48px */
+  --space-s-l: clamp(1.125rem, 0.6563rem + 2.3438vw, 3rem);
+  /* Space s-xl: 18px → 72px */
+  --space-s-xl: clamp(1.125rem, 0.2813rem + 4.2188vw, 4.5rem);
+  /* Space m-l: 27px → 48px */
+  --space-m-l: clamp(1.6875rem, 1.3594rem + 1.6406vw, 3rem);
+  /* Space m-xl: 27px → 72px */
+  --space-m-xl: clamp(1.6875rem, 0.9844rem + 3.5156vw, 4.5rem);
+  /* Space m-2xl: 27px → 96px */
+  --space-m-2xl: clamp(1.6875rem, 0.6094rem + 5.3906vw, 6rem);
+  /* Space l-xl: 36px → 72px */
+  --space-l-xl: clamp(2.25rem, 1.6875rem + 2.8125vw, 4.5rem);
+  /* Space l-2xl: 36px → 96px */
+  --space-l-2xl: clamp(2.25rem, 1.3125rem + 4.6875vw, 6rem);
+  /* Space l-3xl: 36px → 144px */
+  --space-l-3xl: clamp(2.25rem, 0.5625rem + 8.4375vw, 9rem);
+  /* Space xl-2xl: 54px → 96px */
+  --space-xl-2xl: clamp(3.375rem, 2.7188rem + 3.2813vw, 6rem);
+  /* Space xl-3xl: 54px → 144px */
+  --space-xl-3xl: clamp(3.375rem, 1.9688rem + 7.0313vw, 9rem);
+  /* Space 2xl-4xl: 72px → 168px */
+  --space-2xl-4xl: clamp(4.5rem, 3rem + 7.5vw, 10.5rem);
+  /* Space l-3xl: 36px → 144px */
+  --space-l-3xl: clamp(2.25rem, 0.5625rem + 8.4375vw, 9rem);
+  /* Space l-4xl: 36px → 168px */
+  --space-l-4xl: clamp(2.25rem, 0.1875rem + 10.3125vw, 10.5rem);
+
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.147 0.004 49.25);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.147 0.004 49.25);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.147 0.004 49.25);
+  --primary: oklch(0.216 0.006 56.043);
+  --primary-foreground: oklch(0.985 0.001 106.423);
+  --secondary: oklch(0.97 0.001 106.424);
+  --secondary-foreground: oklch(0.216 0.006 56.043);
+  --muted: oklch(0.97 0.001 106.424);
+  --muted-foreground: oklch(0.553 0.013 58.071);
+  --accent: oklch(0.97 0.001 106.424);
+  --accent-foreground: oklch(0.216 0.006 56.043);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.923 0.003 48.717);
+  --input: oklch(0.923 0.003 48.717);
+  --ring: oklch(0.709 0.01 56.259);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0.001 106.423);
+  --sidebar-foreground: oklch(0.147 0.004 49.25);
+  --sidebar-primary: oklch(0.216 0.006 56.043);
+  --sidebar-primary-foreground: oklch(0.985 0.001 106.423);
+  --sidebar-accent: oklch(0.97 0.001 106.424);
+  --sidebar-accent-foreground: oklch(0.216 0.006 56.043);
+  --sidebar-border: oklch(0.923 0.003 48.717);
+  --sidebar-ring: oklch(0.709 0.01 56.259);
+
+  --font-sans: var(--font-general-sans);
+  --font-serif: var(--font-source-serif);
+  --font-mono: var(--font-jetbrains-mono);
 }
 
 @theme inline {
@@ -119,19 +138,39 @@
   --font-sans: var(--font-general-sans);
   --font-serif: var(--font-source-serif);
   --font-mono: var(--font-jetbrains-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -143,7 +182,9 @@ body {
   }
 
   .h0 {
-    font-size: var(--space-l-4xl);
+    font-size: var(--space-l-3xl);
+    font-family: var(--font-general-sans);
+    font-weight: 700;
   }
 
   h1,
@@ -368,6 +409,7 @@ body {
   input,
   label {
     line-height: 1.1;
+    font-family: var(--font-general-sans);
   }
 
   /* Balance text wrapping on headings */
@@ -416,6 +458,7 @@ body {
   figcaption {
     text-wrap: pretty;
     max-width: 65ch;
+    font-family: var(--font-source-serif);
   }
 
   header,
@@ -440,5 +483,48 @@ body {
     html {
       scroll-behavior: smooth;
     }
+  }
+}
+
+.dark {
+  --background: oklch(0.147 0.004 49.25);
+  --foreground: oklch(0.985 0.001 106.423);
+  --card: oklch(0.216 0.006 56.043);
+  --card-foreground: oklch(0.985 0.001 106.423);
+  --popover: oklch(0.216 0.006 56.043);
+  --popover-foreground: oklch(0.985 0.001 106.423);
+  --primary: oklch(0.923 0.003 48.717);
+  --primary-foreground: oklch(0.216 0.006 56.043);
+  --secondary: oklch(0.268 0.007 34.298);
+  --secondary-foreground: oklch(0.985 0.001 106.423);
+  --muted: oklch(0.268 0.007 34.298);
+  --muted-foreground: oklch(0.709 0.01 56.259);
+  --accent: oklch(0.268 0.007 34.298);
+  --accent-foreground: oklch(0.985 0.001 106.423);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.553 0.013 58.071);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.216 0.006 56.043);
+  --sidebar-foreground: oklch(0.985 0.001 106.423);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0.001 106.423);
+  --sidebar-accent: oklch(0.268 0.007 34.298);
+  --sidebar-accent-foreground: oklch(0.985 0.001 106.423);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.553 0.013 58.071);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }

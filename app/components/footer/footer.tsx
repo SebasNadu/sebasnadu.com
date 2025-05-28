@@ -1,5 +1,6 @@
 import { Copy, Mail, X } from 'lucide-react';
 
+import MagneticButton from '@/components/magnetic-button/magnetic-button';
 import TextLink from '@/components/text-link/text-link';
 import { Button } from '@/components/ui/button';
 import {
@@ -20,9 +21,9 @@ export default function Footer() {
     <footer className={`${styles.footer} full`}>
       <Drawer>
         <DrawerTrigger asChild>
-          <Button variant="outline" className={styles.Trigger}>
-            Let&apos;s talk
-          </Button>
+          <MagneticButton label="Let's talk" />
+          {/* <Button variant="outline" className={styles.Trigger}> */}
+          {/* </Button> */}
         </DrawerTrigger>
         <DrawerContent>
           <ul>

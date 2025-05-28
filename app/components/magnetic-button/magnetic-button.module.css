@@ -1,0 +1,84 @@
+.button {
+  display: flex;
+  color: currentColor;
+}
+
+.button {
+  align-items: center;
+  background: 0 0;
+  border: none;
+  border-radius: 6.25rem;
+  color: var(--color-foreground);
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  letter-spacing: -0.01em;
+  line-height: 1.04545;
+  overflow: hidden;
+  padding: 0.9375rem 1.5rem;
+  position: relative;
+  text-decoration: none;
+  word-break: break-word;
+  text-decoration: none;
+}
+
+@media (hover: hover) {
+  .button.buttonStroke:hover {
+    color: var(--color-background);
+    text-decoration: none;
+  }
+}
+
+.buttonStroke:after {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.buttonStroke:after {
+  border: 0.125rem solid var(--color-foreground);
+  border-radius: 6.25rem;
+  content: '';
+  pointer-events: none;
+}
+
+.buttonLabel {
+  position: relative;
+  text-align: center;
+  transition: color 50ms var(--ease-in-out-quart);
+}
+
+.buttonStroke:hover .buttonLabel {
+  transition: color 0.15s var(--ease-in-out-quart);
+}
+
+.buttonFlair {
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.buttonStroke .buttonFlair {
+  transform: scale(0);
+  transform-origin: 0 0;
+  will-change: transform;
+}
+
+.buttonFlair:before {
+  aspect-ratio: 1/1;
+  background-color: var(--color-foreground);
+  border-radius: 50%;
+  content: '';
+  display: block;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  transform: translate(-50%, -50%);
+  width: 170%;
+}

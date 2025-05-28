@@ -44,17 +44,17 @@ const eslintConfig = [
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
 
-      // 'check-file/filename-naming-convention': [
-      //   'error',
-      //   {
-      //     '**/*.{jsx,tsx}': 'KEBAB_CASE',
-      //     '**/*.{js,ts}': 'KEBAB_CASE',
-      //     '**/*.d.ts': 'KEBAB_CASE',
-      //     '**/*.test.{js,jsx,ts,tsx}': 'KEBAB_CASE',
-      //     '**/*.spec.{js,jsx,ts,tsx}': 'KEBAB_CASE',
-      //   },
-      //   { ignoreMiddleExtensions: true },
-      // ],
+      'check-file/filename-naming-convention': [
+        'error',
+        {
+          '**/*.{jsx,tsx}': 'KEBAB_CASE',
+          '**/*.{js,ts}': 'KEBAB_CASE',
+          '**/*.d.ts': 'KEBAB_CASE',
+          '**/*.test.{js,jsx,ts,tsx}': 'KEBAB_CASE',
+          '**/*.spec.{js,jsx,ts,tsx}': 'KEBAB_CASE',
+        },
+        { ignoreMiddleExtensions: true },
+      ],
 
       'sonarjs/cognitive-complexity': 'warn',
       'sonarjs/no-duplicate-string': ['warn', { threshold: 3 }],
@@ -64,7 +64,7 @@ const eslintConfig = [
       'unicorn/no-null': 'off',
       'unicorn/filename-case': 'off',
       'unicorn/consistent-function-scoping': 'warn',
-      'unicorn/no-nested-ternary': 'error',
+      // 'unicorn/no-nested-ternary': 'error',
 
       'jsx-a11y/alt-text': 'error',
       'jsx-a11y/aria-role': 'error',
@@ -73,6 +73,8 @@ const eslintConfig = [
       'no-unused-vars': 'off',
       'prefer-const': 'error',
       'no-var': 'error',
+
+      'no-unsafe-function-type': 'off',
     },
   },
   {

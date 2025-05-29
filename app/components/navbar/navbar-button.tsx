@@ -27,7 +27,7 @@ export default function NavbarButton({ label, href, isActive }: NavbarButtonProp
       window.matchMedia('(prefers-reduced-motion: no-preference)').matches
     ) {
       gsap.to(labelRef.current, {
-        duration: 0.8,
+        duration: 0.5,
         ease: 'sine.in',
         scrambleText: {
           text: label,

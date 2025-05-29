@@ -2,7 +2,7 @@
 
 import { forwardRef, useRef } from 'react';
 
-import useMagneticEffect from '@/hooks/useMagneticEffect';
+import useMagneticEffect from '@/hooks/use-magnetic-effect';
 
 import styles from './magnetic-button.module.css';
 

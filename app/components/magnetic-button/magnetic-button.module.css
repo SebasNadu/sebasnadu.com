@@ -1,25 +1,27 @@
-.button {
-  display: flex;
-  color: currentColor;
+.button.buttonStroke {
+  color: var(--color-emerald-400);
+  font-family: var(--font-general-sans);
+  font-weight: 500;
 }
 
 .button {
+  display: flex;
+  margin: 1rem 1.5rem;
   align-items: center;
+  justify-content: center;
   background: 0 0;
   border: none;
   border-radius: 6.25rem;
-  color: var(--color-foreground);
   cursor: pointer;
   display: inline-flex;
-  justify-content: center;
   letter-spacing: -0.01em;
   line-height: 1.04545;
   overflow: hidden;
-  padding: 0.9375rem 1.5rem;
+  padding: 0.9375rem 1.2rem;
   position: relative;
   text-decoration: none;
   word-break: break-word;
-  text-decoration: none;
+  isolation: isolate;
 }
 
 @media (hover: hover) {
@@ -35,10 +37,7 @@
   position: absolute;
   right: 0;
   top: 0;
-}
-
-.buttonStroke:after {
-  border: 0.125rem solid var(--color-foreground);
+  border: 0.125rem solid var(--color-emerald-400);
   border-radius: 6.25rem;
   content: '';
   pointer-events: none;
@@ -61,6 +60,7 @@
   position: absolute;
   right: 0;
   top: 0;
+  contain: layout;
 }
 
 .buttonStroke .buttonFlair {
@@ -71,7 +71,7 @@
 
 .buttonFlair:before {
   aspect-ratio: 1/1;
-  background-color: var(--color-foreground);
+  background-color: var(--color-emerald-400);
   border-radius: 50%;
   content: '';
   display: block;
@@ -80,5 +80,5 @@
   position: absolute;
   top: 0;
   transform: translate(-50%, -50%);
-  width: 170%;
+  width: 150%;
 }

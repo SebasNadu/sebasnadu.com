@@ -1,1 +1,1 @@
-export type ContextSafeFunc = <T extends (...args: unknown[]) => unknown>(func: T) => T;
+export type ContextSafeFunc = <E extends Event>(fn: (event: E) => void) => (event: E) => void;

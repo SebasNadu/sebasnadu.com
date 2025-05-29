@@ -1,50 +1,43 @@
-import { Copy, Mail, X } from 'lucide-react';
-
 import MagneticButton from '@/components/magnetic-button/magnetic-button';
 import TextLink from '@/components/text-link/text-link';
-import { Button } from '@/components/ui/button';
 import {
   Drawer,
-  DrawerClose,
   DrawerContent,
   DrawerDescription,
-  DrawerFooter,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
 } from '@/components/ui/drawer';
 
+import EmailButtons from './email-buttons';
 import styles from './footer.module.css';
 
 export default function Footer() {
   return (
     <footer className={`${styles.footer} full`}>
       <Drawer>
-        <DrawerTrigger asChild>
+        <DrawerTrigger asChild className={styles.Trigger}>
           <MagneticButton label="Let's talk" />
-          {/* <Button variant="outline" className={styles.Trigger}> */}
-          {/* </Button> */}
         </DrawerTrigger>
         <DrawerContent>
-          <ul>
-            <li>
+          <ul className={styles.content}>
+            <li className={styles.header}>
               <DrawerHeader>
-                <DrawerTitle> Have an exciting project you need help with?</DrawerTitle>
-                <DrawerDescription>
+                <DrawerTitle className={styles.title}>
+                  Have an exciting project you need help with?
+                </DrawerTitle>
+                <DrawerDescription className={styles.description}>
                   Feel free to contact me if you want to collaborate or have a little chat.
-                  <Button variant="outline" size="icon">
-                    <Mail />
-                  </Button>
-                  <Button variant="outline" size="icon">
-                    <Copy />
-                  </Button>
                 </DrawerDescription>
+                <div className={styles.buttons}>
+                  <EmailButtons />
+                </div>
               </DrawerHeader>
             </li>
-            <li>
+            <li className={styles.linkWrapper}>
               <TextLink label="Github" href="https://github.com/SebasNadu" target="_blank" />
             </li>
-            <li>
+            <li className={styles.linkWrapper}>
               <TextLink
                 label="Linkedin"
                 href="https://www.linkedin.com/in/sebasnadu/"
@@ -52,13 +45,6 @@ export default function Footer() {
               />
             </li>
           </ul>
-          {/* <DrawerFooter> */}
-          {/*   <DrawerClose asChild> */}
-          {/*     <Button variant="outline"> */}
-          {/*       <X /> */}
-          {/*     </Button> */}
-          {/*   </DrawerClose> */}
-          {/* </DrawerFooter> */}
         </DrawerContent>
       </Drawer>
     </footer>

@@ -1,0 +1,10 @@
+.buttonHover:hover {
+  color: var(--color-emerald-500);
+  border-color: var(--color-emerald-500);
+}
+
+.message {
+  font-family: var(--font-general-sans);
+  text-align: center;
+  padding-left: 0.3rem;
+}

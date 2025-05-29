@@ -30,7 +30,7 @@ export default function NavbarButton({ label, href, isActive }: NavbarButtonProp
         duration: 0.8,
         ease: 'sine.in',
         scrambleText: {
-          text: labelRef.current.innerText,
+          text: label,
           speed: 2,
           chars: 'lowerCase',
         },
@@ -39,8 +39,16 @@ export default function NavbarButton({ label, href, isActive }: NavbarButtonProp
   });
 
   return (
-    <Link onPointerEnter={onHover} ref={buttonRef} className={styles.link} href={href}>
-      <span className={styles.symbol}>{isActive ? '•' : '\u00A0'}</span>
+    <Link
+      onPointerEnter={onHover}
+      ref={buttonRef}
+      className={styles.link}
+      href={href}
+      aria-label={label}
+    >
+      <span className={styles.symbol} aria-hidden="true">
+        {isActive ? '•' : '\u00A0'}
+      </span>
       <span className={styles.label} ref={labelRef}>
         {label}
       </span>

@@ -2,22 +2,41 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-  margin: 1rem 1.5rem;
+  overflow: hidden;
 }
 
-.Trigger {
-  /* all: unset; */
-  font-family: var(--font-general-sans);
-  font-weight: 400;
-  padding: 1.2rem 0.6rem;
-  border-radius: 2rem;
-  background-color: var(--secondary);
-  cursor: pointer;
-  &:focus {
-    box-shadow: 0 0 0 2px var(--color-stone-200);
-  }
-  &:hover {
-    background-color: var(--color-emerald-600);
-    color: var(--color-background);
-  }
+.content {
+  margin: 0 auto;
+  display: grid;
+  gap: 1.5rem;
+  padding: 1rem;
+  max-width: var(--space-2xl-3xl) * 4;
+  grid-template-columns: 0.75fr 0.25fr;
+}
+
+.header {
+  grid-row: span 3 / span 3;
+  border-radius: 1rem;
+}
+
+.buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  align-items: center;
+  font-size: var(--step-1);
+}
+
+.linkWrapper {
+  margin-top: 0.75rem;
+}
+
+.title {
+  font-size: var(--step-1);
+  text-wrap: pretty;
+}
+
+.description {
+  font-size: var(--step-0);
+  text-wrap: pretty;
 }

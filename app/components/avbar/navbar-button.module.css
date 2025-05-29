@@ -1,0 +1,20 @@
+.link {
+  width: 10ch;
+}
+
+.symbol {
+  display: inline-block;
+  width: 1ch;
+  text-align: center;
+  margin-right: 0.5ch;
+  color: var(--color-emerald-400);
+}
+
+.label {
+  display: inline-block;
+}
+
+.letter {
+  display: inline-block;
+  transition: color 0.3s ease;
+}

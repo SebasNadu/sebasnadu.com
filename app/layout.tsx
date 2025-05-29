@@ -124,6 +124,7 @@ export default function RootLayout({
           'antialiased',
           styles.layout,
           'page-layout',
+          'overflow-hidden',
         ].join(' ')}
       >
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>

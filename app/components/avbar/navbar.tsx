@@ -8,7 +8,6 @@ import styles from './navbar.module.css';
 
 export default function Navbar() {
   const path = usePathname();
-  console.log(path);
 
   return (
     <nav className={`${styles.navbar} full`}>
